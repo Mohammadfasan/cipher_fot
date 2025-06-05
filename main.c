@@ -48,6 +48,10 @@ void decrypt(char temp[], char *decrypted, Queue *queue1) {
 int main() {
     Queue alphabetQueue;
     CreateQueue(&alphabetQueue); 
+    
+    char temp[200];
+    char encrypted_msg[200];
+    char decrypted_msg[200];
 
 
     for (char c = 'A'; c <= 'Z'; c++) {
