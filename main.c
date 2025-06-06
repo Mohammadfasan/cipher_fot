@@ -1,5 +1,6 @@
 #include "queue.h"      
 int key = 3;
+
 //encrypt function
 
 void encrypt(char temp[], char *encrypted, Queue *queue1) {
@@ -52,6 +53,7 @@ int main() {
     char input_msg[200];
     char encrypted_msg[200];
     char decrypted_msg[200];
+    char type;
 
 
     for (char c = 'A'; c <= 'Z'; c++) {
@@ -61,8 +63,19 @@ int main() {
     printf("\nEnter Message : ");
     fgets(input_msg, sizeof(input_msg), stdin);
 
-    encrypt(input_msg, encrypted_msg, &alphabetQueue);
-    printf("Encrypted message: %s", encrypted_msg);
+    printf("\nEncryption (E) or Decryption (D)? ");
+    scanf(" %c", &type);
+
+    if(type == 'E'){
+        encrypt(input_msg, encrypted_msg, &alphabetQueue);
+        printf("Encrypted message: %s", encrypted_msg);
+           
+    }else if(type =='D'){
+        decrypt(input_msg, decrypted_msg, &alphabetQueue);
+        printf("Decrypted message: %s", decrypted_msg);
+    }else{
+        printf("\nInvalid Choice ");
+    }
 
     return 0;
 }
