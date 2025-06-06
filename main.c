@@ -66,15 +66,20 @@ int main() {
     printf("\nEncryption (E) or Decryption (D)? ");
     scanf(" %c", &type);
 
+    printf("\nEnter Shift Key: ");
+    scanf(" %d", &key);
+
     if(type == 'E'){
         encrypt(input_msg, encrypted_msg, &alphabetQueue);
+        printf("************************\n");
         printf("Encrypted message: %s", encrypted_msg);
            
     }else if(type =='D'){
         decrypt(input_msg, decrypted_msg, &alphabetQueue);
+        printf("************************\n");
         printf("Decrypted message: %s", decrypted_msg);
     }else{
-        printf("\nInvalid Choice ");
+        printf("\nInvalid Choice \n");
     }
 
     return 0;
