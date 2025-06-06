@@ -34,13 +34,13 @@ void decrypt(char temp[], char *decrypted, Queue *queue1) {
                 int newIndex = (index - 3 + MAXQUEUE) % MAXQUEUE;
                 decrypted[i] = getChar(queue1, newIndex); 
             } else {
-                decrypted[i] = temp[i]; // Keep original if not found in queue
+                decrypted[i] = temp[i]; 
             }
         } else {
-            decrypted[i] = temp[i]; // Copy non-uppercase chars directly
+            decrypted[i] = temp[i]; 
         }
     }
-    decrypted[i] = '\0'; // at the end of srting
+    decrypted[i] = '\0'; 
 }
 
 
@@ -49,7 +49,7 @@ int main() {
     Queue alphabetQueue;
     CreateQueue(&alphabetQueue); 
     
-    char temp[200];
+    char input_msg[200];
     char encrypted_msg[200];
     char decrypted_msg[200];
 
@@ -57,7 +57,12 @@ int main() {
     for (char c = 'A'; c <= 'Z'; c++) {
         Append(&alphabetQueue, c);
     }
+    
+    printf("\nEnter Message : ");
+    fgets(input_msg, sizeof(input_msg), stdin);
 
+    encrypt(input_msg, encrypted_msg, &alphabetQueue);
+    printf("Encrypted message: %s", encrypted_msg);
 
     return 0;
 }
