@@ -1,4 +1,5 @@
-#include "queue.h"      
+#include "queue.h" 
+#define SIZE_MSG 200     //msg size 
 int key = 3;
 
 //encrypt function
@@ -50,9 +51,9 @@ int main() {
     Queue alphabetQueue;
     CreateQueue(&alphabetQueue); 
     
-    char input_msg[200];
-    char encrypted_msg[200];
-    char decrypted_msg[200];
+    char input_msg[SIZE_MSG];
+    char encrypted_msg[SIZE_MSG];
+    char decrypted_msg[SIZE_MSG];
     char type;
 
 
