@@ -1,5 +1,5 @@
 #include "queue.h"      
-
+int key = 3;
 //encrypt function
 
 void encrypt(char temp[], char *encrypted, Queue *queue1) {
@@ -9,7 +9,7 @@ void encrypt(char temp[], char *encrypted, Queue *queue1) {
             char original = temp[i];
             int index = getIndex(queue1, original); 
             if (index != -1) {
-                int newIndex = (index + 3) % MAXQUEUE; 
+                int newIndex = (index + key) % MAXQUEUE; 
                 encrypted[i] = getChar(queue1, newIndex); 
             } else {
                 encrypted[i] = temp[i]; // Keep original if not found in queue
@@ -31,7 +31,7 @@ void decrypt(char temp[], char *decrypted, Queue *queue1) {
             int index = getIndex(queue1, original);
 
             if (index != -1) {
-                int newIndex = (index - 3 + MAXQUEUE) % MAXQUEUE;
+                int newIndex = (index - key + MAXQUEUE) % MAXQUEUE;
                 decrypted[i] = getChar(queue1, newIndex); 
             } else {
                 decrypted[i] = temp[i]; 
