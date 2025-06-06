@@ -18,7 +18,7 @@ int IsQueueFull(const Queue *q) {
 
 void Append(Queue *q, QueueElement x) {
     if (IsQueueFull(q)) {
-        printf("Queue Full - Cannot append element.\n");
+        printf("Queue Full.\n");
         exit(1); //used here to terminate
     } else {
         q->rear = (q->rear + 1) % MAXQUEUE; 
@@ -48,7 +48,7 @@ int getIndex(Queue *q, char c) {
 
 char getChar(Queue *q, int index) {
     if (index >= 0 && index < MAXQUEUE) {
-        return (char)q->data[index]; // Cast back to char
+        return (char)q->data[index]; 
     }
     return '\0'; // if invalid char
 }
