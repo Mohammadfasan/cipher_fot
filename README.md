@@ -7,3 +7,4 @@ queue.h <- has circular queue implementations
 main.c <- starting point of the program, also 
            has encrypt and decrypt functions,
 
+Only works on uppercase messages
